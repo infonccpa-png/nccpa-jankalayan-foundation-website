@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Schemes | NCCPA Jankalyan Foundation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.6;
+}
+
+header{
+    background:#0645ad;
+    color:white;
+    padding:15px 20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:15px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0645ad,#008f7a);
+    color:white;
+    text-align:center;
+    padding:65px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:45px 20px;
+}
+
+.search-area{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #00000012;
+    margin-bottom:35px;
+}
+
+.search-box{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.category{
+    border:0;
+    padding:10px 17px;
+    border-radius:25px;
+    background:#e8eef8;
+    color:#0645ad;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.category:hover,
+.category.active{
+    background:#0645ad;
+    color:white;
+}
+
+.scheme-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.scheme{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #00000010;
+    transition:.2s;
+}
+
+.scheme:hover{
+    transform:translateY(-3px);
+}
+
+.scheme-icon{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.scheme h2{
+    color:#0645ad;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.scheme p{
+    color:#555;
+    font-size:14px;
+}
+
+.tag{
+    display:inline-block;
+    margin-top:15px;
+    padding:5px 10px;
+    border-radius:15px;
+    background:#eef5ff;
+    color:#0645ad;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.no-result{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    color:#777;
+}
+
+.info{
+    margin-top:40px;
+    padding:25px;
+    background:#fff8e6;
+    border-left:5px solid #e0a800;
+    border-radius:10px;
+}
+
+footer{
+    background:#071b3a;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    margin-top:30px;
+}
+
+footer a{
+    color:white;
+    text-decoration:none;
+}
+
+@media(max-width:850px){
+    .scheme-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        display:block;
+        text-align:center;
+    }
+
+    nav{
+        margin-top:12px;
+    }
+
+    nav a{
+        margin:4px;
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .scheme-grid{
+        grid-template-columns:1fr;
+    }
+
+    .container{
+        padding:35px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+NCCPA Jankalyan Foundation
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="government-schemes.html">योजनाएँ</a>
+<a href="index.html#projects">Projects</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>सरकारी योजनाएँ</h1>
+
+<p>
+Government Schemes Information Portal
+</p>
+
+<p style="font-size:15px;margin-top:15px;">
+जनकल्याणकारी योजनाओं की जानकारी एक स्थान पर
+</p>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="search-area">
+
+<h2>🔎 योजना खोजें</h2>
+
+<input
+type="text"
+id="search"
+class="search-box"
+placeholder="योजना का नाम लिखें... जैसे किसान, आवास, रोजगार"
+onkeyup="searchSchemes()"
+>
+
+
+<div class="categories">
+
+<button class="category active"
+onclick="filterCategory('all',this)">
+सभी
+</button>
+
+<button class="category"
+onclick="filterCategory('महिला',this)">
+महिला
+</button>
+
+<button class="category"
+onclick="filterCategory('किसान',this)">
+किसान
+</button>
+
+<button class="category"
+onclick="filterCategory('रोजगार',this)">
+रोजगार
+</button>
+
+<button class="category"
+onclick="filterCategory('आवास',this)">
+आवास
+</button>
+
+<button class="category"
+onclick="filterCategory('स्वास्थ्य',this)">
+स्वास्थ्य
+</button>
+
+<button class="category"
+onclick="filterCategory('शिक्षा',this)">
+शिक्षा
+</button>
+
+</div>
+
+</div>
+
+
+<div class="scheme-grid" id="schemeGrid">
+
+
+<!-- Scheme 1 -->
+
+<div class="scheme"
+data-category="किसान"
+data-name="प्रधानमंत्री किसान सम्मान निधि पीएम किसान">
+
+<div class="scheme-icon">🌾</div>
+
+<h2>प्रधानमंत्री किसान सम्मान निधि</h2>
+
+<p>
+किसानों के लिए केंद्र सरकार की प्रमुख सहायता
+योजना। पात्र किसानों को निर्धारित नियमों के अनुसार
+आर्थिक सहायता प्रदान की जाती है।
+</p>
+
+<span class="tag">किसान</span>
+
+</div>
+
+
+<!-- Scheme 2 -->
+
+<div class="scheme"
+data-category="आवास"
+data-name="प्रधानमंत्री आवास योजना ग्रामीण">
+
+<div class="scheme-icon">🏠</div>
+
+<h2>प्रधानमंत्री आवास योजना – ग्रामीण</h2>
+
+<p>
+ग्रामीण क्षेत्रों में पात्र परिवारों को पक्का घर
+उपलब्ध कराने के उद्देश्य से संचालित योजना।
+</p>
+
+<span class="tag">आवास</span>
+
+</div>
+
+
+<!-- Scheme 3 -->
+
+<div class="scheme"
+data-category="स्वास्थ्य"
+data-name="आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना">
+
+<div class="scheme-icon">🏥</div>
+
+<h2>आयुष्मान भारत</h2>
+
+<p>
+पात्र परिवारों को स्वास्थ्य सेवाओं एवं अस्पताल
+उपचार से संबंधित सहायता उपलब्ध कराने वाली
+महत्वपूर्ण योजना।
+</p>
+
+<span class="tag">स्वास्थ्य</span>
+
+</div>
+
+
+<!-- Scheme 4 -->
+
+<div class="scheme"
+data-category="रोजगार"
+data-name="मनरेगा महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी योजना">
+
+<div class="scheme-icon">👷</div>
+
+<h2>मनरेगा</h2>
+
+<p>
+ग्रामीण परिवारों को मांग के आधार पर रोजगार
+उपलब्ध कराने से संबंधित प्रमुख ग्रामीण रोजगार
+कार्यक्रम।
+</p>
+
+<span class="tag">रोजगार</span>
+
+</div>
+
+
+<!-- Scheme 5 -->
+
+<div class="scheme"
+data-category="महिला"
+data-name="प्रधानमंत्री उज्ज्वला योजना">
+
+<div class="scheme-icon">🔥</div>
+
+<h2>प्रधानमंत्री उज्ज्वला योजना</h2>
+
+<p>
+पात्र परिवारों की महिलाओं को स्वच्छ खाना पकाने
+के ईंधन की सुविधा से जोड़ने की योजना।
+</p>
+
+<span class="tag">महिला</span>
+
+</div>
+
+
+<!-- Scheme 6 -->
+
+<div class="scheme"
+data-category="शिक्षा"
+data-name="राष्ट्रीय छात्रवृत्ति पोर्टल">
+
+<div class="scheme-icon">🎓</div>
+
+<h2>राष्ट्रीय छात्रवृत्ति</h2>
+
+<p>
+योग्य विद्यार्थियों के लिए विभिन्न छात्रवृत्ति
+योजनाओं की जानकारी एवं आवेदन सुविधा उपलब्ध
+कराने वाला पोर्टल।
+</p>
+
+<span class="tag">शिक्षा</span>
+
+</div>
+
+
+<!-- Scheme 7 -->
+
+<div class="scheme"
+data-category="रोजगार"
+data-name="प्रधानमंत्री मुद्रा योजना">
+
+<div class="scheme-icon">💼</div>
+
+<h2>प्रधानमंत्री मुद्रा योजना</h2>
+
+<p>
+सूक्ष्म एवं छोटे व्यवसायों के लिए ऋण सुविधा से
+संबंधित केंद्र सरकार की योजना।
+</p>
+
+<span class="tag">रोजगार</span>
+
+</div>
+
+
+<!-- Scheme 8 -->
+
+<div class="scheme"
+data-category="महिला"
+data-name="बेटी बचाओ बेटी पढ़ाओ">
+
+<div class="scheme-icon">👧</div>
+
+<h2>बेटी बचाओ बेटी पढ़ाओ</h2>
+
+<p>
+बालिकाओं की शिक्षा, सुरक्षा और सामाजिक
+जागरूकता को बढ़ावा देने की पहल।
+</p>
+
+<span class="tag">महिला</span>
+
+</div>
+
+
+<!-- Scheme 9 -->
+
+<div class="scheme"
+data-category="स्वास्थ्य"
+data-name="जन औषधि योजना">
+
+<div class="scheme-icon">💊</div>
+
+<h2>प्रधानमंत्री भारतीय जन औषधि परियोजना</h2>
+
+<p>
+गुणवत्तापूर्ण जेनेरिक दवाओं को किफायती कीमत पर
+उपलब्ध कराने की पहल।
+</p>
+
+<span class="tag">स्वास्थ्य</span>
+
+</div>
+
+
+</div>
+
+
+<div id="noResult" class="no-result">
+
+<h3>कोई योजना नहीं मिली</h3>
+
+<p>
+कृपया दूसरा नाम या दूसरी श्रेणी खोजें।
+</p>
+
+</div>
+
+
+<div class="info">
+
+<h3>⚠️ महत्वपूर्ण सूचना</h3>
+
+<p>
+यह पेज नागरिकों को सरकारी योजनाओं के बारे में
+सामान्य जानकारी देने के उद्देश्य से बनाया गया है।
+योजना की पात्रता, लाभ, दस्तावेज और आवेदन प्रक्रिया
+समय के साथ बदल सकती है। आवेदन करने से पहले
+संबंधित आधिकारिक सरकारी पोर्टल से जानकारी
+सत्यापित करें।
+</p>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<h3>NCCPA Jankalyan Foundation</h3>
+
+<p>
+National Council for Community Promotion & Awareness
+</p>
+
+<p style="margin-top:8px;">
+“हर घर तक सेवा, हर दिल में विश्वास”
+</p>
+
+<p style="margin-top:15px;">
+📞 8084284106 | 7903998184
+</p>
+
+<p>
+📧 infonccpa@gmail.com
+</p>
+
+<p style="margin-top:20px;font-size:13px;color:#bbb;">
+© 2026 NCCPA Jankalyan Foundation. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+let currentCategory = "all";
+
+function filterCategory(category,button){
+
+    currentCategory = category;
+
+    document
+    .querySelectorAll(".category")
+    .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    searchSchemes();
+}
+
+
+function searchSchemes(){
+
+    let search =
+    document
+    .getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+    let schemes =
+    document.querySelectorAll(".scheme");
+
+    let found = 0;
+
+    schemes.forEach(function(scheme){
+
+        let name =
+        scheme
+        .getAttribute("data-name")
+        .toLowerCase();
+
+        let category =
+        scheme
+        .getAttribute("data-category");
+
+        let matchSearch =
+        name.includes(search);
+
+        let matchCategory =
+        currentCategory === "all" ||
+        category === currentCategory;
+
+        if(matchSearch && matchCategory){
+
+            scheme.style.display = "block";
+            found++;
+
+        }else{
+
+            scheme.style.display = "none";
+
+        }
+
+    });
+
+
+    document.getElementById("noResult").style.display =
+    found === 0 ? "block" : "none";
+
+}
+
+</script>
+
+</body>
+</html>
