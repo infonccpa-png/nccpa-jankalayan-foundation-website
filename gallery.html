@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | NCCPA Jankalyan Foundation</title>
+
+<meta name="description"
+content="NCCPA Jankalyan Foundation की सामाजिक गतिविधियों, स्वास्थ्य शिविर, शिक्षा, सर्वेक्षण और जन-जागरूकता कार्यक्रमों की फोटो गैलरी।">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.6;
+}
+
+header{
+    background:#0645ad;
+    color:white;
+    padding:15px 20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:14px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0645ad,#008f7a);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:45px 20px;
+}
+
+.intro{
+    background:white;
+    padding:28px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 15px #00000010;
+    margin-bottom:30px;
+}
+
+.filters{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.filter{
+    border:0;
+    padding:10px 18px;
+    border-radius:25px;
+    background:#e7edf7;
+    color:#0645ad;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.filter:hover,
+.filter.active{
+    background:#0645ad;
+    color:white;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.photo{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 15px #00000010;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.photo:hover{
+    transform:translateY(-4px);
+}
+
+.photo-img{
+    height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#dbeafe,#d1fae5);
+    font-size:70px;
+}
+
+.photo-info{
+    padding:16px;
+}
+
+.photo-info h3{
+    color:#0645ad;
+    font-size:18px;
+}
+
+.photo-info p{
+    color:#666;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.upload-note{
+    margin-top:40px;
+    background:#fff8e6;
+    border-left:5px solid #e0a800;
+    padding:25px;
+    border-radius:10px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-content{
+    max-width:850px;
+    width:100%;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    position:relative;
+}
+
+.modal-image{
+    height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#e5e7eb;
+    font-size:120px;
+}
+
+.modal-text{
+    padding:20px;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:35px;
+    color:white;
+    cursor:pointer;
+    z-index:2;
+}
+
+footer{
+    background:#071b3a;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    margin-top:30px;
+}
+
+footer p{
+    margin:7px 0;
+}
+
+@media(max-width:850px){
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        display:block;
+        text-align:center;
+    }
+
+    nav{
+        margin-top:12px;
+    }
+
+    nav a{
+        margin:4px;
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .photo-img{
+        height:230px;
+    }
+
+    .modal-image{
+        height:350px;
+    }
+
+    .container{
+        padding:35px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+NCCPA Jankalyan Foundation
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="government-schemes.html">योजनाएँ</a>
+<a href="projects.html">Projects</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>फोटो गैलरी</h1>
+
+<p>Our Activities & Social Work Gallery</p>
+
+<p style="font-size:15px;margin-top:12px;">
+जनसेवा की गतिविधियों की झलक
+</p>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="intro">
+
+<h2 style="color:#0645ad;">
+NCCPA गतिविधियाँ
+</h2>
+
+<p style="margin-top:10px;">
+हमारी सामाजिक गतिविधियों, जागरूकता कार्यक्रमों,
+स्वास्थ्य शिविरों, शिक्षा कार्यक्रमों और ग्रामीण
+सर्वेक्षण की तस्वीरें यहाँ प्रदर्शित की जाएँगी।
+</p>
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter active"
+onclick="filterGallery('all',this)">
+सभी
+</button>
+
+<button class="filter"
+onclick="filterGallery('health',this)">
+🏥 स्वास्थ्य
+</button>
+
+<button class="filter"
+onclick="filterGallery('education',this)">
+📚 शिक्षा
+</button>
+
+<button class="filter"
+onclick="filterGallery('survey',this)">
+📋 सर्वेक्षण
+</button>
+
+<button class="filter"
+onclick="filterGallery('awareness',this)">
+📢 जागरूकता
+</button>
+
+<button class="filter"
+onclick="filterGallery('team',this)">
+👥 टीम
+</button>
+
+</div>
+
+
+<div class="gallery">
+
+
+<div class="photo"
+data-category="health"
+onclick="openModal('🏥','स्वास्थ्य जागरूकता अभियान','NCCPA Health Awareness Activity')">
+
+<div class="photo-img">🏥</div>
+
+<div class="photo-info">
+<h3>स्वास्थ्य जागरूकता</h3>
+<p>Health Awareness Activity</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="education"
+onclick="openModal('📚','शिक्षा कार्यक्रम','Education & Awareness Activity')">
+
+<div class="photo-img">📚</div>
+
+<div class="photo-info">
+<h3>शिक्षा कार्यक्रम</h3>
+<p>Education Activity</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="survey"
+onclick="openModal('📋','ग्रामीण सर्वेक्षण','NCCPA Rural Survey Activity')">
+
+<div class="photo-img">📋</div>
+
+<div class="photo-info">
+<h3>ग्रामीण सर्वेक्षण</h3>
+<p>Rural Survey Activity</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="awareness"
+onclick="openModal('📢','जन-जागरूकता अभियान','Public Awareness Program')">
+
+<div class="photo-img">📢</div>
+
+<div class="photo-info">
+<h3>जन-जागरूकता</h3>
+<p>Public Awareness Program</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="team"
+onclick="openModal('👥','NCCPA टीम','NCCPA Team Activity')">
+
+<div class="photo-img">👥</div>
+
+<div class="photo-info">
+<h3>NCCPA टीम</h3>
+<p>Team Activity</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="health"
+onclick="openModal('💊','स्वास्थ्य शिविर','Health Camp Activity')">
+
+<div class="photo-img">💊</div>
+
+<div class="photo-info">
+<h3>स्वास्थ्य शिविर</h3>
+<p>Health Camp</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="education"
+onclick="openModal('🎓','ज्ञानदीप योजना','NCCPA Gyan Deep Education Initiative')">
+
+<div class="photo-img">🎓</div>
+
+<div class="photo-info">
+<h3>ज्ञानदीप योजना</h3>
+<p>Education Initiative</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="awareness"
+onclick="openModal('🌱','पर्यावरण जागरूकता','Environment Awareness Activity')">
+
+<div class="photo-img">🌱</div>
+
+<div class="photo-info">
+<h3>पर्यावरण जागरूकता</h3>
+<p>Environment Activity</p>
+</div>
+
+</div>
+
+
+<div class="photo"
+data-category="team"
+onclick="openModal('🤝','समुदाय सेवा','Community Service Activity')">
+
+<div class="photo-img">🤝</div>
+
+<div class="photo-info">
+<h3>समुदाय सेवा</h3>
+<p>Community Service</p>
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="upload-note">
+
+<h3>📸 अपनी वास्तविक फोटो यहाँ लगाएँ</h3>
+
+<p style="margin-top:8px;">
+ऊपर की Emoji Gallery अभी Demo के रूप में है।
+जब वेबसाइट Live होगी, तब इन स्थानों पर आपके
+वास्तविक Health Camp, Survey, Team, Education
+और अन्य NGO कार्यक्रमों की फोटो लगाई जा सकती हैं।
+</p>
+
+</div>
+
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<span class="close" onclick="closeModal()">
+&times;
+</span>
+
+<div class="modal-content">
+
+<div class="modal-image" id="modalImage">
+🏥
+</div>
+
+<div class="modal-text">
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalDescription"></p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<h3>NCCPA Jankalyan Foundation</h3>
+
+<p>
+National Council for Community Promotion & Awareness
+</p>
+
+<p>
+“हर घर तक सेवा, हर दिल में विश्वास”
+</p>
+
+<p>
+📞 8084284106 | 7903998184
+</p>
+
+<p>
+📧 infonccpa@gmail.com
+</p>
+
+<p style="margin-top:20px;font-size:13px;color:#bbb;">
+© 2026 NCCPA Jankalyan Foundation. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+function filterGallery(category,button){
+
+    document
+    .querySelectorAll(".filter")
+    .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document
+    .querySelectorAll(".photo")
+    .forEach(photo => {
+
+        if(category === "all" ||
+           photo.dataset.category === category){
+
+            photo.style.display="block";
+
+        }else{
+
+            photo.style.display="none";
+
+        }
+
+    });
+}
+
+
+function openModal(icon,title,description){
+
+    document.getElementById("modalImage").innerHTML=icon;
+
+    document.getElementById("modalTitle").innerText=title;
+
+    document.getElementById("modalDescription").innerText=description;
+
+    document.getElementById("modal").style.display="flex";
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal").style.display="none";
+
+}
+
+
+window.onclick=function(event){
+
+    let modal=document.getElementById("modal");
+
+    if(event.target===modal){
+        closeModal();
+    }
+
+}
+
+</script>
+
+</body>
+</html>
